@@ -1,5 +1,7 @@
 # Import Base Images
 
+> Trigger CI build
+
 ## Import image `nodejs-10-rhel7:1-30` from Red Hat
 
 This image will be used by the frontend build. As with other base images it should be configured in your **Tools** environment. At the time of writing, PIMS is using **nodejs-10-rhel7:1-30**
