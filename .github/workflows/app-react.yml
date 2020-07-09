@@ -45,3 +45,11 @@ jobs:
           env_vars: javascript
           # Specify whether or not CI build should fail if Codecov runs into an error during upload
           fail_ci_if_error: true
+      - name: SonarQube Scan
+        uses: kitabisa/sonarqube-action@master
+        if: ${{ github.event_name == 'pull_request' }}
+        with:
+          host: ${{ secrets.SONAR_URL }}
+          login: ${{ secrets.SONAR_TOKEN }}
+          projectBaseDir: ${{env.working-directory}}
+          projectKey: pims-frontend-${{ github.event.pull_request.number }}
