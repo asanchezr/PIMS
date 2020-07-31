@@ -16,7 +16,6 @@ const uiElement = (
   <MapFilterBar
     agencyLookupCodes={MOCK.AGENCIES}
     propertyClassifications={MOCK.CLASSIFICATIONS}
-    lotSizes={[1, 2, 3]}
     onFilterChange={onFilterChange}
   />
 );
@@ -40,7 +39,6 @@ describe('MapFilterBar', () => {
         <MapFilterBar
           agencyLookupCodes={MOCK.AGENCIES}
           propertyClassifications={MOCK.CLASSIFICATIONS}
-          lotSizes={[1, 2, 3]}
           onFilterChange={onFilterChange}
         />,
       )
@@ -127,6 +125,7 @@ describe('MapFilterBar', () => {
       address: 'mockaddress',
       municipality: '',
       projectNumber: '',
+      pid: '',
       agencies: '2',
       classificationId: '0',
       minLotSize: '1',

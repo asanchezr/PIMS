@@ -43,7 +43,6 @@ export type MapProps = {
   properties: IProperty[];
   agencies: ILookupCode[];
   propertyClassifications: ILookupCode[];
-  lotSizes: number[];
   selectedProperty?: IPropertyDetail | null;
   onMarkerClick?: (obj: IProperty, position?: [number, number]) => void;
   onMarkerPopupClose?: (obj: IPropertyDetail) => void;
@@ -61,7 +60,6 @@ const Map: React.FC<MapProps> = ({
   properties,
   agencies,
   propertyClassifications,
-  lotSizes,
   selectedProperty,
   onMarkerClick,
   onMarkerPopupClose,
@@ -245,7 +243,6 @@ const Map: React.FC<MapProps> = ({
             <MapFilterBar
               agencyLookupCodes={agencies}
               propertyClassifications={propertyClassifications}
-              lotSizes={lotSizes}
               onFilterChange={handleMapFilterChange}
             />
           </Container>

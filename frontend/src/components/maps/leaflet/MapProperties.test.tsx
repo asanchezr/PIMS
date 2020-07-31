@@ -40,6 +40,7 @@ const mockDetails: IParcelDetail = {
     latitude: 48,
     longitude: 123,
     classification: 'Core Operational',
+    name: 'mockname',
     description: 'test',
     isSensitive: false,
     evaluations: [
@@ -121,7 +122,6 @@ describe('MapProperties View', () => {
             selectedProperty={mockDetails}
             agencies={[]}
             propertyClassifications={[]}
-            lotSizes={[]}
             onMarkerClick={jest.fn()}
           />
         </Router>
@@ -147,7 +147,6 @@ describe('MapProperties View', () => {
             selectedProperty={emptyDetails}
             agencies={[]}
             propertyClassifications={[]}
-            lotSizes={[]}
             onMarkerClick={jest.fn()}
           />
         </Router>
@@ -173,7 +172,6 @@ describe('MapProperties View', () => {
             selectedProperty={mockDetails}
             agencies={[]}
             propertyClassifications={[]}
-            lotSizes={[]}
             onMarkerClick={jest.fn()}
           />
         </Router>
@@ -200,7 +198,6 @@ describe('MapProperties View', () => {
             selectedProperty={mockDetails}
             agencies={[]}
             propertyClassifications={[]}
-            lotSizes={[]}
             onMarkerClick={onParcelClick}
           />
         </BrowserRouter>

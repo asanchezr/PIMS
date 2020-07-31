@@ -90,7 +90,6 @@ export type MapFilterChangeEvent = {
 type MapFilterProps = {
   agencyLookupCodes: ILookupCode[];
   propertyClassifications: ILookupCode[];
-  lotSizes: number[];
   onFilterChange: (e: MapFilterChangeEvent) => void;
 };
 
@@ -138,7 +137,6 @@ const MapFilterBar: React.FC<MapFilterProps> = ({
       }}
       validationSchema={FilterBarSchema}
       onSubmit={(values, { setSubmitting }) => {
-        setSubmitting(true);
         setSubmitting(true);
         delete values.inEnhancedReferralProcess;
         delete values.inSurplusPropertyProgram;

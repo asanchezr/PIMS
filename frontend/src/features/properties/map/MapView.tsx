@@ -33,12 +33,6 @@ const parcelBounds: IPropertySearchParams = {
   inSurplusPropertyProgram: false,
 };
 
-// This could also come from the API, a local file, etc -OR- replacing the <select> fields with free text inputs.
-// Hard-coding it here until further requirements say otherwise.
-const fetchLotSizes = () => {
-  return [1, 2, 5, 10, 50, 100, 200, 300, 400, 500, 1000, 10000];
-};
-
 interface MapViewProps {
   disableMapFilterBar?: boolean;
   disabled?: boolean;
@@ -65,7 +59,6 @@ const MapView: React.FC<MapViewProps> = (props: MapViewProps) => {
     return lookupCode.type === API.PROPERTY_CLASSIFICATION_CODE_SET_NAME && !!lookupCode.isVisible;
   });
 
-  const lotSizes = fetchLotSizes();
   const dispatch = useDispatch();
 
   const getApiParams = (e: MapViewportChangeEvent): IPropertySearchParams | null => {
@@ -134,7 +127,6 @@ const MapView: React.FC<MapViewProps> = (props: MapViewProps) => {
       selectedProperty={propertyDetail}
       agencies={agencies}
       propertyClassifications={propertyClassifications}
-      lotSizes={lotSizes}
       onMarkerClick={
         props.onMarkerClick ??
         ((p, position) => p.id && dispatch(fetchPropertyDetail(p.id, p.propertyTypeId, position)))
