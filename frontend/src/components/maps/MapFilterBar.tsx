@@ -83,13 +83,16 @@ export type MapFilterChangeEvent = {
   classificationId: string;
   minLotSize: string;
   maxLotSize: string;
-  inSurplusPropertyProgram: boolean;
+  inSurplusPropertyProgram?: boolean;
   inEnhancedReferralProcess?: boolean;
 };
 
 type MapFilterProps = {
   agencyLookupCodes: ILookupCode[];
   propertyClassifications: ILookupCode[];
+  /** Initial values of the form */
+  initialValues: MapFilterChangeEvent;
+  /** Change handler */
   onFilterChange: (e: MapFilterChangeEvent) => void;
 };
 
@@ -99,6 +102,7 @@ type MapFilterProps = {
 const MapFilterBar: React.FC<MapFilterProps> = ({
   agencyLookupCodes,
   propertyClassifications,
+  initialValues,
   onFilterChange,
 }) => {
   const mapLookupCode = (code: ILookupCode): SelectOption => ({
@@ -123,18 +127,7 @@ const MapFilterBar: React.FC<MapFilterProps> = ({
 
   return (
     <Formik<MapFilterChangeEvent>
-      initialValues={{
-        searchBy: 'address',
-        pid: '',
-        address: '',
-        municipality: '',
-        projectNumber: '',
-        agencies: '',
-        classificationId: '',
-        minLotSize: '',
-        maxLotSize: '',
-        inSurplusPropertyProgram: false,
-      }}
+      initialValues={initialValues}
       validationSchema={FilterBarSchema}
       onSubmit={(values, { setSubmitting }) => {
         setSubmitting(true);

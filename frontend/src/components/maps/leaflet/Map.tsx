@@ -31,7 +31,7 @@ export type MapViewportChangeEvent = {
     classificationId: number | null;
     minLotSize: number | null;
     maxLotSize: number | null;
-    inSurplusPropertyProgram: boolean | null;
+    inSurplusPropertyProgram?: boolean;
     inEnhancedReferralProcess?: boolean;
   };
 };
@@ -243,6 +243,7 @@ const Map: React.FC<MapProps> = ({
             <MapFilterBar
               agencyLookupCodes={agencies}
               propertyClassifications={propertyClassifications}
+              initialValues={mapFilter}
               onFilterChange={handleMapFilterChange}
             />
           </Container>
