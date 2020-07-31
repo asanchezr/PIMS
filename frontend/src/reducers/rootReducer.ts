@@ -12,13 +12,14 @@ import jwtSlice from './JwtSlice';
 import keycloakReadySlice from './keycloakReadySlice';
 import mapViewZoomSlice from './mapViewZoomSlice';
 import projectWorkflowSlice from 'features/projects/common/slices/projectWorkflowSlice';
-import { ProjectReducers } from 'constants/reducerTypes';
+import { ProjectReducers, PropertyReducers } from 'constants/reducerTypes';
 import projectSlice from 'features/projects/common/slices/projectSlice';
 import projectTasksSlice from 'features/projects/common/slices/projectTasksSlice';
 import ProjectWorkflowTasksSlice from 'features/projects/common/slices/projectWorkflowTasksSlice';
 import erpTabSlice from 'features/projects/erp/slices/erpTabSlice';
 import splTabSlice from 'features/projects/spl/slices/splTabSlice';
 import projectStatusesSlice from 'features/projects/common/slices/projectStatusesSlice';
+import propertyFilterSlice from './propertyFilterSlice';
 
 export const reducerObject = {
   loadingBar: loadingBarReducer,
@@ -39,6 +40,7 @@ export const reducerObject = {
   [ProjectReducers.SPL_TAB]: splTabSlice.reducer,
   [reducerTypes.KEYCLOAK_READY]: keycloakReadySlice.reducer,
   [reducerTypes.MAP_VIEW_ZOOM]: mapViewZoomSlice.reducer,
+  [PropertyReducers.FILTER]: propertyFilterSlice.reducer,
 };
 
 export const rootReducer = combineReducers(reducerObject);

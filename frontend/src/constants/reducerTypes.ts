@@ -41,3 +41,7 @@ export enum ProjectReducers {
   TASKS = 'tasks',
   STATUSES = 'statuses',
 }
+
+export enum PropertyReducers {
+  FILTER = 'propertyFilter',
+}
